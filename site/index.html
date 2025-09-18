@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospero</title>
+    <meta name="description" content="Prospero - A clean, modern static website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <!-- Logo -->
+                <a href="/" class="logo">
+                    <img src="assets/img/logo.svg" alt="Prospero logo" class="logo__image">
+                    <span class="logo__text">Prospero</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="#" class="nav__link">Home</a></li>
+                        <li><a href="#" class="nav__link">About</a></li>
+                        <li><a href="#" class="nav__link">Papers</a></li>
+                        <li><a href="#" class="nav__link">Projects</a></li>
+                        <li><a href="#" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="mobile-toggle__bar"></span>
+                    <span class="mobile-toggle__bar"></span>
+                    <span class="mobile-toggle__bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation (hidden by default) -->
+    <nav class="mobile-nav" aria-hidden="true">
+        <ul class="mobile-nav__list">
+            <li><a href="#" class="mobile-nav__link">Home</a></li>
+            <li><a href="#" class="mobile-nav__link">About</a></li>
+            <li><a href="#" class="mobile-nav__link">Papers</a></li>
+            <li><a href="#" class="mobile-nav__link">Projects</a></li>
+            <li><a href="#" class="mobile-nav__link">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content" class="main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__background">
+                <div class="hero__overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero__content">
+                    <h1 class="hero__title">Prospero</h1>
+                    <p class="hero__description">
+                        Advancing knowledge through innovative research and collaborative projects.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#" class="btn btn--primary">Read Our Papers</a>
+                        <a href="#" class="btn btn--secondary">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">© Prospero</p>
+                <nav class="footer__nav">
+                    <a href="#" class="footer__link">About</a>
+                    <span class="footer__separator">•</span>
+                    <a href="#" class="footer__link">Papers</a>
+                    <span class="footer__separator">•</span>
+                    <a href="#" class="footer__link">Projects</a>
+                    <span class="footer__separator">•</span>
+                    <a href="#" class="footer__link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
