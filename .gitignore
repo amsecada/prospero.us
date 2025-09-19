@@ -128,6 +128,9 @@ build/
 *.tmp
 *.temp
 
+# Exception: papers build script should be tracked
+!site/papers/build/
+
 # Logs
 logs
 *.log
@@ -143,7 +146,6 @@ coverage
 # Generated files from your papers build process
 # These can be regenerated from source markdown files
 site/papers/individual/
-site/papers/index.html
 
 # IDE files
 .vscode/
