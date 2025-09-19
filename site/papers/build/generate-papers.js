@@ -21,7 +21,6 @@ const md = new MarkdownIt({
 
 // Paths
 const CONTENT_DIR = path.join(__dirname, '../content');
-const INDIVIDUAL_DIR = path.join(__dirname, '../individual');
 const OUTPUT_FILE = path.join(__dirname, '../index.html');
 
 // Helper function to render paper card
@@ -348,7 +347,6 @@ const individualTemplate = (paper, paperSlug) => `
 async function generatePapers() {
     try {
         // Ensure directories exist
-        await fs.ensureDir(INDIVIDUAL_DIR);
         
         // Read all markdown files
         const files = await fs.readdir(CONTENT_DIR);
@@ -379,7 +377,7 @@ async function generatePapers() {
             }
             
             const paper = {
-                slug: `individual/${slug}/index.html`,
+                slug: `content/${slug}/index.html`,
                 attributes,
                 html
             };
@@ -388,7 +386,7 @@ async function generatePapers() {
             
             // Generate individual paper page
             const individualHtml = individualTemplate(paper, slug);
-            const individualDir = path.join(INDIVIDUAL_DIR, slug);
+            const individualDir = path.join(CONTENT_DIR, slug);
             await fs.ensureDir(individualDir);
             await fs.writeFile(path.join(individualDir, 'index.html'), individualHtml);
         }
@@ -396,9 +394,29 @@ async function generatePapers() {
         // Sort papers by date (newest first)
         papers.sort((a, b) => new Date(b.attributes.date) - new Date(a.attributes.date));
         
-        // Generate main papers page (using existing index.html as template)
-        const existingIndex = await fs.readFile(OUTPUT_FILE, 'utf8');
-        await fs.writeFile(OUTPUT_FILE, existingIndex);
+        // Generate main papers page
+        const papersJSON = JSON.stringify(papers);
+
+        const highlightedPapers = papers.filter(p => p.attributes.pinned);
+        const highlightedPapersHtml = highlightedPapers.map(renderPaperCard).join('');
+
+        const allPapers = papers.filter(p => !p.attributes.pinned);
+        const allPapersHtml = allPapers.map(renderPaperCard).join('');
+
+        let indexTemplate = await fs.readFile(OUTPUT_FILE, 'utf8');
+        let updatedIndex = indexTemplate.replace(
+            'const papers = []; // PAPERS_JSON_PLACEHOLDER',
+            `const papers = ${papersJSON};`
+        );
+        updatedIndex = updatedIndex.replace(
+            '<!-- HIGHLIGHTED_PAPERS_PLACEHOLDER -->',
+            highlightedPapersHtml
+        );
+        updatedIndex = updatedIndex.replace(
+            '<!-- ALL_PAPERS_PLACEHOLDER -->',
+            allPapersHtml
+        );
+        await fs.writeFile(OUTPUT_FILE, updatedIndex);
         
         console.log(`Generated ${papers.length} paper pages`);
         console.log('Papers index updated at:', OUTPUT_FILE);
