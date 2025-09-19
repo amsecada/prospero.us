@@ -141,9 +141,9 @@ pids
 coverage
 
 # Generated files from your papers build process
-# (Note: You might want to keep some of these if they're part of your deployment)
-# site/papers/individual/  # Uncomment if these should be ignored
-# site/papers/index.html  # Uncomment if this should be ignored
+# These can be regenerated from source markdown files
+site/papers/individual/
+site/papers/index.html
 
 # IDE files
 .vscode/

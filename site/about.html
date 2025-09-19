@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Prospero</title>
+    <meta name="description" content="Learn about Prospero's mission, research focus, and collaborative approach to advancing knowledge through innovative projects.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+    
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+        }
+        
+        .about-hero__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, var(--text) 0%, var(--p-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .about-hero__description {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .content-section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        .content-block {
+            margin-bottom: var(--space-3xl);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .content-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .content-block__title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--text);
+        }
+        
+        .content-block__text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--muted);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .content-block__text:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            color: var(--p-400);
+            font-weight: 500;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: var(--space-3xl) 0;
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            margin: var(--space-3xl) 0;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            color: var(--text);
+        }
+        
+        .cta-description {
+            font-size: 1.125rem;
+            color: var(--muted);
+            margin-bottom: var(--space-2xl);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <img src="assets/img/logo.svg" alt="Prospero logo" class="logo__image">
+                    <span class="logo__text">Prospero</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="index.html" class="nav__link">Home</a></li>
+                        <li><a href="about.html" class="nav__link">About</a></li>
+                        <li><a href="papers/index.html" class="nav__link">Papers</a></li>
+                        <li><a href="#" class="nav__link">Projects</a></li>
+                        <li><a href="#" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="mobile-toggle__bar"></span>
+                    <span class="mobile-toggle__bar"></span>
+                    <span class="mobile-toggle__bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation (hidden by default) -->
+    <nav class="mobile-nav" aria-hidden="true">
+        <ul class="mobile-nav__list">
+            <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+            <li><a href="about.html" class="mobile-nav__link">About</a></li>
+            <li><a href="papers/index.html" class="mobile-nav__link">Papers</a></li>
+            <li><a href="#" class="mobile-nav__link">Projects</a></li>
+            <li><a href="#" class="mobile-nav__link">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content" class="main">
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <h1 class="about-hero__title">About Prospero</h1>
+                <p class="about-hero__description">
+                    We are a collective of researchers and innovators dedicated to pushing the boundaries of knowledge through interdisciplinary collaboration and cutting-edge exploration.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Content Sections -->
+        <section class="content-section">
+            <div class="container">
+                <!-- Mission Block -->
+                <div class="content-block" id="mission">
+                    <h2 class="content-block__title">Our Mission</h2>
+                    <p class="content-block__text">
+                        At Prospero, we believe that the most significant breakthroughs occur at the intersection of disciplines. Our mission is to <span class="highlight">foster innovative research</span> that transcends traditional academic boundaries, bringing together diverse perspectives to tackle complex challenges.
+                    </p>
+                    <p class="content-block__text">
+                        We are committed to creating an environment where curiosity thrives, where questions are valued as much as answers, and where collaboration is the cornerstone of discovery. Our work spans multiple domains, from computational sciences to humanities, always with an eye toward practical impact and meaningful contribution.
+                    </p>
+                </div>
+                
+                <!-- Approach Block -->
+                <div class="content-block" id="approach">
+                    <h2 class="content-block__title">Our Approach</h2>
+                    <p class="content-block__text">
+                        Prospero operates on a model of <span class="highlight">radical collaboration</span>. We bring together experts from different fields, creating teams that combine deep specialization with broad interdisciplinary perspective. This approach allows us to see problems from multiple angles and develop solutions that are both innovative and robust.
+                    </p>
+                    <p class="content-block__text">
+                        Our methodology emphasizes iterative experimentation, open dialogue, and continuous learning. We embrace complexity rather than shy away from it, recognizing that the most interesting questions often don't have simple answers. Through this process, we aim to not only generate new knowledge but also to develop new ways of thinking about knowledge itself.
+                    </p>
+                </div>
+                
+                <!-- Focus Areas Block -->
+                <div class="content-block" id="focus">
+                    <h2 class="content-block__title">Research Focus</h2>
+                    <p class="content-block__text">
+                        Our work centers around several key areas where we believe interdisciplinary approaches can yield transformative results. These include <span class="highlight">computational social science</span>, where we apply data-driven methods to understand human behavior and social systems; <span class="highlight">digital humanities</span>, exploring how technology can enhance our understanding of culture and history; and <span class="highlight">ethical AI development</span>, ensuring that technological progress aligns with human values.
+                    </p>
+                    <p class="content-block__text">
+                        We also maintain active research programs in <span class="highlight">complex systems analysis</span>, studying emergent phenomena across biological, social, and technological domains, and in <span class="highlight">knowledge representation</span>, developing new ways to organize, access, and understand information in our increasingly complex world.
+                    </p>
+                </div>
+                
+                <!-- Impact Block -->
+                <div class="content-block" id="impact">
+                    <h2 class="content-block__title">Impact & Vision</h2>
+                    <p class="content-block__text">
+                        The true measure of our work lies in its ability to make a difference—both within academic circles and in the wider world. We strive to produce research that not only advances theoretical understanding but also offers practical insights and solutions to real-world problems.
+                    </p>
+                    <p class="content-block__text">
+                        Looking forward, we envision a future where knowledge flows freely across disciplinary boundaries, where collaboration is the default mode of inquiry, and where research serves as a bridge between abstract theory and concrete application. We believe that by working together across traditional divides, we can address some of the most pressing challenges of our time and create a more informed, thoughtful, and innovative society.
+                    </p>
+                </div>
+                
+                <!-- CTA Section -->
+                <div class="cta-section">
+                    <h2 class="cta-title">Join Our Journey</h2>
+                    <p class="cta-description">
+                        Interested in collaborating or learning more about our work? We're always open to new partnerships and conversations.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#" class="btn btn--primary">Explore Projects</a>
+                        <a href="#" class="btn btn--secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <p class="footer__copyright">© Prospero</p>
+                <nav class="footer__nav">
+                    <a href="about.html" class="footer__link">About</a>
+                    <span class="footer__separator">•</span>
+                    <a href="papers/index.html" class="footer__link">Papers</a>
+                    <span class="footer__separator">•</span>
+                    <a href="#" class="footer__link">Projects</a>
+                    <span class="footer__separator">•</span>
+                    <a href="#" class="footer__link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/app.js"></script>
+    <script>
+        // Scroll animation for content blocks
+        document.addEventListener('DOMContentLoaded', function() {
+            const contentBlocks = document.querySelectorAll('.content-block');
+            
+            // Create Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Optional: unobserve after animation to improve performance
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            // Observe all content blocks
+            contentBlocks.forEach(block => {
+                observer.observe(block);
+            });
+            
+            // Add slight delay between animations for staggered effect
+            contentBlocks.forEach((block, index) => {
+                block.style.transitionDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
