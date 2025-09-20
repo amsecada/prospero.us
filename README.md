@@ -9,6 +9,26 @@ To view the site locally:
 1. **Simple method**: Open `site/index.html` directly in your web browser
 2. **Local server method**: Run `python -m http.server 8000` in the site directory, then visit `http://localhost:8000`
 
+## Paper Generation
+
+The research papers in the `site/papers` directory are generated from markdown files.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+
+### Setup and Building
+
+1.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+2.  **Generate papers**:
+    ```bash
+    npm run build:papers
+    ```
+    This command reads the markdown files from `site/papers/content`, converts them to HTML, and places them in the `site/papers/public` directory. It also updates the main papers index page.
+
 ## Customization
 
 ### Colors
