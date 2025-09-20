@@ -6,8 +6,12 @@ A clean, minimal static website built with pure HTML, CSS, and JavaScript.
 
 To view the site locally:
 
-1. **Simple method**: Open `site/index.html` directly in your web browser
-2. **Local server method**: Run `python -m http.server 8000` in the site directory, then visit `http://localhost:8000`
+1. **Simple method**: Open `site/index.html` directly in your web browser. Note: This method may not render the generated paper pages correctly due to how browsers handle file-based paths.
+2. **Local server method (recommended)**: For full functionality, including the generated papers, run a local server. You can either:
+    - Run `npm run dev` from the project root.
+    - Or, navigate to the `site` directory and run `python -m http.server 8000`.
+
+    Then, visit `http://localhost:8000` in your browser.
 
 ## Paper Generation
 

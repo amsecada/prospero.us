@@ -49,22 +49,22 @@ const individualPaperTemplate = (paper) => `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${paper.attributes.title} - Prospero</title>
     <meta name="description" content="${paper.attributes.abstract || 'Research paper from Prospero'}">
-    <link rel="stylesheet" href="../../../assets/css/styles.css">
-    <link rel="stylesheet" href="../../../assets/css/papers.css">
-    <link rel="icon" type="image/svg+xml" href="../../../assets/img/logo.svg">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/papers.css">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <a href="../../../index.html" class="logo">
-                <img src="../../../assets/img/logo.svg" alt="Prospero logo" class="logo__image">
+            <a href="/index.html" class="logo">
+                <img src="/assets/img/logo.svg" alt="Prospero logo" class="logo__image">
                 <span class="logo__text">Prospero</span>
             </a>
             <nav class="nav">
                 <ul class="nav__list">
-                    <li><a href="../../../index.html" class="nav__link">Home</a></li>
-                    <li><a href="../../../about.html" class="nav__link">About</a></li>
-                    <li><a href="../../index.html" class="nav__link nav__link--active">Papers</a></li>
+                    <li><a href="/index.html" class="nav__link">Home</a></li>
+                    <li><a href="/about.html" class="nav__link">About</a></li>
+                    <li><a href="/papers/index.html" class="nav__link nav__link--active">Papers</a></li>
                 </ul>
             </nav>
         </div>
@@ -72,7 +72,7 @@ const individualPaperTemplate = (paper) => `
     <main class="main">
         <div class="container">
             <article class="paper-content">
-                <a href="../index.html" class="back-link">← Back to Papers</a>
+                <a href="/papers/index.html" class="back-link">← Back to Papers</a>
                 <h1>${paper.attributes.title}</h1>
                 <div class="paper-meta-large">
                     <span>By ${paper.attributes.author}</span>
