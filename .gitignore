@@ -145,7 +145,7 @@ coverage
 
 # Generated files from your papers build process
 # These can be regenerated from source markdown files
-site/papers/content/*/
+site/papers/public/
 
 # IDE files
 .vscode/
