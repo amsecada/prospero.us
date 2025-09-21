@@ -1,51 +1,47 @@
-# Prospero Static Site
+# Prospero
 
-A clean, minimal static website built with pure HTML, CSS, and JavaScript.
+Welcome to Prospero, a static website for my side hustle. This repository stores artifacts, papers, rich media content, and press releases as I embark on my startup journey.
 
-## Local Development
+## Getting Started
 
-To view the site locally:
+Follow these instructions to set up and run the project locally.
 
-1. **Simple method**: Open `site/index.html` directly in your web browser
-2. **Local server method**: Run `python -m http.server 8000` in the site directory, then visit `http://localhost:8000`
+### 1. Install Dependencies
 
-## Customization
+Run the following command in the root directory to install the necessary Node.js dependencies:
 
-### Colors
-Edit the CSS variables in `assets/css/styles.css`:
-```css
-:root {
-  --bg: #0b0b10;        /* Background color */
-  --surface: #111119;   /* Surface/container color */
-  --text: #eaeaf2;      /* Primary text color */
-  --muted: #a2a2b8;     /* Muted/secondary text */
-  --p-400: #9a6cff;     /* Purple accent 400 */
-  --p-500: #7d4aff;     /* Purple accent 500 */
-  --p-600: #6a36f4;     /* Purple accent 600 */
-}
+```bash
+npm install
 ```
 
-### Fonts
-The site uses Google Fonts Inter. To change fonts:
-1. Update the font import in `index.html`
-2. Update the font-family in `styles.css`
+This will install all packages listed in `package.json`.
 
-### Images
-- **Logo**: Replace `assets/img/logo.svg` with your SVG logo
-- **Hero image**: Replace `assets/img/hero.jpg` with your hero image
+### 2. Build Papers
 
-## Deployment
+Execute the build script to convert all Markdown files in `site/papers/content/` into static HTML pages.
 
-### GitHub Pages
-To deploy on GitHub Pages:
-1. Publish the `/site` directory as your Pages source, OR
-2. Use a `gh-pages` branch containing the site files
+```bash
+npm run build:papers
+```
 
-The site uses relative paths and will work correctly on GitHub Pages.
+The output files will be placed in the `site/papers/` directory.
 
-## Features
-- Mobile-first responsive design
-- Accessibility compliant (ARIA labels, semantic HTML)
-- Purple/black/gray color theme
-- Sticky navigation with mobile hamburger menu
-- Clean, maintainable code structure
+### 3. Run Local Server
+
+To view the website, navigate to the `/site` subdirectory and start a simple Python web server:
+
+```bash
+cd site
+python -m http.server 8000
+```
+
+You can then access the site at `http://localhost:8000` in your web browser.
+
+## Dependencies
+
+This project uses the following npm packages to build the site:
+
+- **`markdown-it`**: A powerful and flexible Markdown parser. It converts the Markdown files for the papers into HTML.
+- **`front-matter`**: Parses YAML front matter from files. This is used to extract metadata like title and date from the paper files.
+- **`highlight.js`**: Provides syntax highlighting for code blocks within the papers.
+- **`fs-extra`**: Adds file system methods that aren't included in the native `fs` module. It's used by the build script for file operations.
