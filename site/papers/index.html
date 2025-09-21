@@ -6,26 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Papers - Prospero</title>
     <meta name="description" content="Explore research papers and publications from Prospero.">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/papers.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/img/logo.svg">
-    
+
     <style>
         .papers-hero {
             padding: var(--space-3xl) 0;
             text-align: center;
             background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
         }
-        
+
         .papers-hero__title {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 700;
@@ -35,7 +35,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .papers-hero__description {
             font-size: 1.25rem;
             color: var(--muted);
@@ -43,33 +43,33 @@
             margin: 0 auto;
             line-height: 1.6;
         }
-        
+
         .filter-section {
             background: var(--surface);
             padding: var(--space-lg);
             border-radius: var(--radius-lg);
             margin: var(--space-xl) 0;
         }
-        
+
         .filter-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-md);
             margin-bottom: var(--space-md);
         }
-        
+
         .filter-group {
             display: flex;
             flex-direction: column;
             gap: var(--space-sm);
         }
-        
+
         .filter-label {
             font-weight: 600;
             color: var(--text);
             margin-bottom: var(--space-xs);
         }
-        
+
         .filter-select {
             padding: var(--space-sm);
             border: 1px solid var(--border);
@@ -78,19 +78,19 @@
             color: var(--text);
             font-family: var(--font-family);
         }
-        
+
         .filter-select:focus {
             outline: none;
             border-color: var(--p-400);
         }
-        
+
         .papers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: var(--space-xl);
             margin: var(--space-xl) 0;
         }
-        
+
         .paper-card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -99,20 +99,20 @@
             transition: var(--transition);
             cursor: pointer;
         }
-        
+
         .paper-card:hover {
             transform: translateY(-2px);
             border-color: var(--p-400);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .paper-card__title {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: var(--space-sm);
             color: var(--text);
         }
-        
+
         .paper-card__abstract {
             color: var(--muted);
             line-height: 1.6;
@@ -122,14 +122,14 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        
+
         .paper-meta {
             display: flex;
             flex-wrap: wrap;
             gap: var(--space-sm);
             margin-bottom: var(--space-md);
         }
-        
+
         .meta-item {
             background: var(--bg);
             padding: var(--space-xs) var(--space-sm);
@@ -137,7 +137,7 @@
             font-size: 0.875rem;
             color: var(--muted);
         }
-        
+
         .paper-card__link {
             color: var(--p-400);
             text-decoration: none;
@@ -146,22 +146,22 @@
             align-items: center;
             gap: var(--space-xs);
         }
-        
+
         .paper-card__link:hover {
             color: var(--p-500);
         }
-        
+
         .highlighted-section {
             margin: var(--space-3xl) 0;
         }
-        
+
         .section-title {
             font-size: 1.75rem;
             font-weight: 600;
             margin-bottom: var(--space-xl);
             color: var(--text);
         }
-        
+
         .no-results {
             text-align: center;
             padding: var(--space-3xl);
@@ -172,7 +172,7 @@
 <body>
     <!-- Skip to content link for accessibility -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
-    
+
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -182,18 +182,18 @@
                     <img src="../assets/img/logo.svg" alt="Prospero logo" class="logo__image">
                     <span class="logo__text">Prospero</span>
                 </a>
-                
+
                 <!-- Desktop Navigation -->
                 <nav class="nav">
                     <ul class="nav__list">
                         <li><a href="../index.html" class="nav__link">Home</a></li>
                         <li><a href="../about.html" class="nav__link">About</a></li>
                         <li><a href="index.html" class="nav__link nav__link--active">Papers</a></li>
-                        <li><a href="../projects.html" class="nav__link">Projects</a></li>
-                        <li><a href="../contact.html" class="nav__link">Contact</a></li>
+                        <li><a href="#" class="nav__link">Projects</a></li>
+                        <li><a href="#" class="nav__link">Contact</a></li>
                     </ul>
                 </nav>
-                
+
                 <!-- Mobile Menu Toggle -->
                 <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
                     <span class="mobile-toggle__bar"></span>
@@ -203,18 +203,18 @@
             </div>
         </div>
     </header>
-    
+
     <!-- Mobile Navigation (hidden by default) -->
     <nav class="mobile-nav" aria-hidden="true">
         <ul class="mobile-nav__list">
             <li><a href="../index.html" class="mobile-nav__link">Home</a></li>
             <li><a href="../about.html" class="mobile-nav__link">About</a></li>
             <li><a href="index.html" class="mobile-nav__link mobile-nav__link--active">Papers</a></li>
-            <li><a href="../projects.html" class="mobile-nav__link">Projects</a></li>
-            <li><a href="../contact.html" class="mobile-nav__link">Contact</a></li>
+            <li><a href="#" class="mobile-nav__link">Projects</a></li>
+            <li><a href="#" class="mobile-nav__link">Contact</a></li>
         </ul>
     </nav>
-    
+
     <!-- Main Content -->
     <main id="main-content" class="main">
         <!-- Papers Hero Section -->
@@ -226,7 +226,7 @@
                 </p>
             </div>
         </section>
-        
+
         <div class="container">
             <!-- Filter Section -->
             <section class="filter-section">
@@ -238,7 +238,7 @@
                             <option value="Research">Research</option><option value="Technical">Technical</option><option value="Analysis">Analysis</option><option value="Ethics">Ethics</option>
                         </select>
                     </div>
-                    
+
                     <div class="filter-group">
                         <label class="filter-label">Tags</label>
                         <select class="filter-select" id="tag-filter">
@@ -246,7 +246,7 @@
                             <option value="network-analysis">network-analysis</option><option value="complex-systems">complex-systems</option><option value="python">python</option><option value="data-visualization">data-visualization</option><option value="ai-ethics">ai-ethics</option><option value="machine-learning">machine-learning</option><option value="governance">governance</option><option value="responsible-ai">responsible-ai</option>
                         </select>
                     </div>
-                    
+
                     <div class="filter-group">
                         <label class="filter-label">Sort By</label>
                         <select class="filter-select" id="sort-filter">
@@ -262,17 +262,16 @@
             <section class="highlighted-section">
                 <h2 class="section-title">Featured Papers</h2>
                 <div class="papers-grid" id="highlighted-papers">
-
+                    
     <div class="paper-card" onclick="window.location.href='public/sample-paper-1/index.html'">
         <h3 class="paper-card__title">Understanding Complex Systems Through Network Analysis</h3>
         <div class="paper-meta">
-            <span class="meta-item">1/15/2024</span>
-            <span class="meta-item">Research</span><span class="meta-item">Technical</span>
+            <span class="meta-item">Jan 15, 2024</span><span class="meta-item">Research</span><span class="meta-item">Technical</span>
         </div>
         <p class="paper-card__abstract">This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies.</p>
         <a href="public/sample-paper-1/index.html" class="paper-card__link">Read paper →</a>
     </div>
-
+  
                 </div>
             </section>
 
@@ -280,22 +279,21 @@
             <section>
                 <h2 class="section-title">All Publications</h2>
                 <div class="papers-grid" id="all-papers">
-
+                    
     <div class="paper-card" onclick="window.location.href='public/sample-paper-2/index.html'">
         <h3 class="paper-card__title">Ethical Considerations in Artificial Intelligence Development</h3>
         <div class="paper-meta">
-            <span class="meta-item">2/20/2024</span>
-            <span class="meta-item">Analysis</span><span class="meta-item">Ethics</span>
+            <span class="meta-item">Feb 20, 2024</span><span class="meta-item">Analysis</span><span class="meta-item">Ethics</span>
         </div>
         <p class="paper-card__abstract">This paper examines the ethical challenges posed by rapid advancements in artificial intelligence and proposes a framework for responsible AI development. We explore issues of bias, transparency, accountability, and the societal impact of AI systems.</p>
         <a href="public/sample-paper-2/index.html" class="paper-card__link">Read paper →</a>
     </div>
-
+  
                 </div>
             </section>
         </div>
     </main>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -323,7 +321,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript -->
     <script src="../assets/js/app.js"></script>
     <script>
@@ -333,20 +331,43 @@
             const tagFilter = document.getElementById('tag-filter');
             const sortFilter = document.getElementById('sort-filter');
             const allPapers = document.getElementById('all-papers');
-            
+
             const papers = [{"slug":"public/sample-paper-2/index.html","attributes":{"title":"Ethical Considerations in Artificial Intelligence Development","author":"Dr. Eleanor Vance","date":"2024-02-20","categories":["Analysis","Ethics"],"tags":["ai-ethics","machine-learning","governance","responsible-ai"],"pinned":false,"abstract":"This paper examines the ethical challenges posed by rapid advancements in artificial intelligence and proposes a framework for responsible AI development. We explore issues of bias, transparency, accountability, and the societal impact of AI systems."}},{"slug":"public/sample-paper-1/index.html","attributes":{"title":"Understanding Complex Systems Through Network Analysis","author":"Prospero Research Team","date":"2024-01-15","categories":["Research","Technical"],"tags":["network-analysis","complex-systems","python","data-visualization"],"pinned":true,"abstract":"This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies."}}];
-            
+
+            const formatPaperDate = (date) => {
+                if (!date) return '';
+                const parsed = new Date(date);
+                return isNaN(parsed.getTime())
+                    ? ''
+                    : parsed.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+            };
+
+            const renderMetaItems = (paper) => {
+                const metaParts = [];
+                const formattedDate = formatPaperDate(paper.attributes.date);
+
+                if (formattedDate) {
+                    metaParts.push(`<span class="meta-item">${formattedDate}</span>`);
+                }
+
+                if (Array.isArray(paper.attributes.categories)) {
+                    metaParts.push(...paper.attributes.categories.map(cat => `<span class="meta-item">${cat}</span>`));
+                }
+
+                return metaParts.join('');
+            };
+
             function filterPapers() {
                 const category = categoryFilter.value;
                 const tag = tagFilter.value;
                 const sort = sortFilter.value;
-                
+
                 let filtered = papers.filter(paper => {
                     const matchesCategory = !category || paper.attributes.categories?.includes(category);
                     const matchesTag = !tag || paper.attributes.tags?.includes(tag);
                     return matchesCategory && matchesTag;
                 });
-                
+
                 // Sort papers
                 filtered.sort((a, b) => {
                     switch(sort) {
@@ -360,25 +381,24 @@
                             return 0;
                     }
                 });
-                
+
                 // Update display
                 allPapers.innerHTML = filtered.map(paper => `
                     <div class="paper-card" onclick="window.location.href='${paper.slug}'">
                         <h3 class="paper-card__title">${paper.attributes.title}</h3>
                         <div class="paper-meta">
-                            <span class="meta-item">${new Date(paper.attributes.date).toLocaleDateString()}</span>
-                            ${paper.attributes.categories?.map(cat => `<span class="meta-item">${cat}</span>`).join('')}
+                            ${renderMetaItems(paper)}
                         </div>
                         <p class="paper-card__abstract">${paper.attributes.abstract || ''}</p>
                         <a href="${paper.slug}" class="paper-card__link">Read paper →</a>
                     </div>
                 `).join('');
-                
+
                 if (filtered.length === 0) {
                     allPapers.innerHTML = '<div class="no-results">No papers match your filters.</div>';
                 }
             }
-            
+
             categoryFilter.addEventListener('change', filterPapers);
             tagFilter.addEventListener('change', filterPapers);
             sortFilter.addEventListener('change', filterPapers);
