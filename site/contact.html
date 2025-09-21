@@ -3,34 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prospero</title>
-    <meta name="description" content="Prospero - A clean, modern static website">
-    
+    <title>Contact - Prospero</title>
+    <meta name="description" content="Get in touch with the Prospero team. We're open to collaborations, questions, and conversations.">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+
+    <style>
+        /* Contact page specific styles */
+        .contact-hero {
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+        }
+
+        .contact-hero__title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            background: linear-gradient(135deg, var(--text) 0%, var(--p-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero__description {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            padding: var(--space-3xl) 0;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--p-400);
+            box-shadow: 0 0 0 2px rgba(125, 74, 255, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: var(--space-md) var(--space-xl);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
+            background-color: var(--p-500);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-button:hover {
+            background-color: var(--p-600);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
     <a href="#main-content" class="skip-to-content">Skip to main content</a>
-    
+
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header__inner">
                 <!-- Logo -->
-                <a href="/" class="logo">
+                <a href="index.html" class="logo">
                     <img src="assets/img/logo.svg" alt="Prospero logo" class="logo__image">
                     <span class="logo__text">Prospero</span>
                 </a>
-                
+
                 <!-- Desktop Navigation -->
                 <nav class="nav">
                     <ul class="nav__list">
@@ -41,7 +131,7 @@
                         <li><a href="contact.html" class="nav__link">Contact</a></li>
                     </ul>
                 </nav>
-                
+
                 <!-- Mobile Menu Toggle -->
                 <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
                     <span class="mobile-toggle__bar"></span>
@@ -51,7 +141,7 @@
             </div>
         </div>
     </header>
-    
+
     <!-- Mobile Navigation (hidden by default) -->
     <nav class="mobile-nav" aria-hidden="true">
         <ul class="mobile-nav__list">
@@ -62,29 +152,41 @@
             <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
         </ul>
     </nav>
-    
+
     <!-- Main Content -->
     <main id="main-content" class="main">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero__background">
-                <div class="hero__overlay"></div>
-            </div>
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
             <div class="container">
-                <div class="hero__content">
-                    <h1 class="hero__title">Prospero</h1>
-                    <p class="hero__description">
-                        Advancing knowledge through innovative research and collaborative projects.
-                    </p>
-                    <div class="hero__actions">
-                        <a href="papers/index.html" class="btn btn--primary">Read Our Papers</a>
-                        <a href="#" class="btn btn--secondary">Contact</a>
+                <h1 class="contact-hero__title">Get in Touch</h1>
+                <p class="contact-hero__description">
+                    We'd love to hear from you. Whether you have a question about our research, a proposal for collaboration, or just want to say hello, please don't hesitate to reach out.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <div class="container">
+                <form class="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="form-button">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -112,7 +214,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript -->
     <script src="assets/js/app.js"></script>
 </body>
