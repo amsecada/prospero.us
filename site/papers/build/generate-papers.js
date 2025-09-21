@@ -25,15 +25,49 @@ const md = new MarkdownIt({
   }
 });
 
+// --- HELPERS ---
+
+const formatDate = (date) => {
+  if (!date) return '';
+  const parsed = new Date(date);
+  return Number.isNaN(parsed.getTime())
+    ? ''
+    : parsed.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+};
+
+const renderMetaPills = (paper) => {
+  const metaItems = [];
+
+  if (paper.attributes.author) {
+    metaItems.push(`<span class="meta-item-large">By ${paper.attributes.author}</span>`);
+  }
+
+  const formattedDate = formatDate(paper.attributes.date);
+  if (formattedDate) {
+    metaItems.push(`<span class="meta-item-large">${formattedDate}</span>`);
+  }
+
+  if (Array.isArray(paper.attributes.categories)) {
+    metaItems.push(...paper.attributes.categories.map((cat) => `<span class="meta-item-large">${cat}</span>`));
+  }
+
+  return metaItems.join('\n                ');
+};
+
 // --- TEMPLATES ---
 
 function renderPaperCard(paper) {
+  const categories = Array.isArray(paper.attributes.categories) ? paper.attributes.categories : [];
   return `
     <div class="paper-card" onclick="window.location.href='public/${paper.slug}/index.html'">
         <h3 class="paper-card__title">${paper.attributes.title}</h3>
         <div class="paper-meta">
-            <span class="meta-item">${new Date(paper.attributes.date).toLocaleDateString()}</span>
-            ${paper.attributes.categories?.map(cat => `<span class="meta-item">${cat}</span>`).join('')}
+            ${(() => {
+              const date = formatDate(paper.attributes.date);
+              const dateHtml = date ? `<span class="meta-item">${date}</span>` : '';
+              const categoriesHtml = categories.map(cat => `<span class="meta-item">${cat}</span>`).join('');
+              return `${dateHtml}${categoriesHtml}`;
+            })()}
         </div>
         <p class="paper-card__abstract">${paper.attributes.abstract || ''}</p>
         <a href="public/${paper.slug}/index.html" class="paper-card__link">Read paper →</a>
@@ -49,46 +83,92 @@ const individualPaperTemplate = (paper) => `
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${paper.attributes.title} - Prospero</title>
     <meta name="description" content="${paper.attributes.abstract || 'Research paper from Prospero'}">
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="stylesheet" href="../../assets/css/papers.css">
-    <link rel="icon" type="image/svg+xml" href="../../assets/img/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../../assets/css/papers.css">
+    <link rel="icon" type="image/svg+xml" href="../../../assets/img/logo.svg">
 </head>
 <body>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <header class="header">
         <div class="container">
-            <a href="../../index.html" class="logo">
-                <img src="../../assets/img/logo.svg" alt="Prospero logo" class="logo__image">
-                <span class="logo__text">Prospero</span>
-            </a>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li><a href="../../index.html" class="nav__link">Home</a></li>
-                    <li><a href="../../about.html" class="nav__link">About</a></li>
-                    <li><a href="../index.html" class="nav__link nav__link--active">Papers</a></li>
-                </ul>
-            </nav>
+            <div class="header__inner">
+                <a href="../../../index.html" class="logo">
+                    <img src="../../../assets/img/logo.svg" alt="Prospero logo" class="logo__image">
+                    <span class="logo__text">Prospero</span>
+                </a>
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="../../../index.html" class="nav__link">Home</a></li>
+                        <li><a href="../../../about.html" class="nav__link">About</a></li>
+                        <li><a href="../../index.html" class="nav__link nav__link--active">Papers</a></li>
+                        <li><a href="../../../projects.html" class="nav__link">Projects</a></li>
+                        <li><a href="../../../contact.html" class="nav__link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="mobile-toggle__bar"></span>
+                    <span class="mobile-toggle__bar"></span>
+                    <span class="mobile-toggle__bar"></span>
+                </button>
+            </div>
         </div>
     </header>
-    <main class="main">
+    <nav class="mobile-nav" aria-hidden="true">
+        <ul class="mobile-nav__list">
+            <li><a href="../../../index.html" class="mobile-nav__link">Home</a></li>
+            <li><a href="../../../about.html" class="mobile-nav__link">About</a></li>
+            <li><a href="../../index.html" class="mobile-nav__link mobile-nav__link--active">Papers</a></li>
+            <li><a href="../../../projects.html" class="mobile-nav__link">Projects</a></li>
+            <li><a href="../../../contact.html" class="mobile-nav__link">Contact</a></li>
+        </ul>
+    </nav>
+    <main id="main-content" class="main">
+        <section class="paper-header">
+            <div class="container">
+                <a href="../../index.html" class="back-link">← Back to Papers</a>
+                <h1 class="paper-header__title">${paper.attributes.title}</h1>
+                <div class="paper-meta-large">
+                    ${renderMetaPills(paper)}
+                </div>
+                ${paper.attributes.abstract ? `<div class="paper-abstract">${paper.attributes.abstract}</div>` : ''}
+            </div>
+        </section>
         <div class="container">
             <article class="paper-content">
-                <a href="../index.html" class="back-link">← Back to Papers</a>
-                <h1>${paper.attributes.title}</h1>
-                <div class="paper-meta-large">
-                    <span>By ${paper.attributes.author}</span>
-                    <span>${new Date(paper.attributes.date).toLocaleDateString()}</span>
-                </div>
-                <div class="paper-body">
-                    ${paper.html}
-                </div>
+                ${paper.html}
             </article>
         </div>
     </main>
     <footer class="footer">
         <div class="container">
-            <p>&copy; ${new Date().getFullYear()} Prospero. All rights reserved.</p>
+            <div class="footer__social">
+                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                    <svg class="footer__social-icon" viewBox="0 0 24 24">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                </a>
+                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                    <svg class="footer__social-icon" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Rumble">
+                    <svg class="footer__social-icon" viewBox="0 0 24 24">
+                        <path d="M19.68 12.74c0 4.41-3.59 8-8 8s-8-3.59-8-8 3.59-8 8-8 8 3.59 8 8zm-8-6.4c-3.53 0-6.4 2.87-6.4 6.4s2.87 6.4 6.4 6.4 6.4-2.87 6.4-6.4-2.87-6.4-6.4-6.4zm3.6 6.4c0 1.99-1.61 3.6-3.6 3.6s-3.6-1.61-3.6-3.6 1.61-3.6 3.6-3.6 3.6 1.61 3.6 3.6z"/>
+                    </svg>
+                </a>
+                <a href="#" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                    <svg class="footer__social-icon" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </footer>
+    <script src="../../../assets/js/app.js"></script>
 </body>
 </html>
 `;

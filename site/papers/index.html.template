@@ -316,6 +316,29 @@
 
             const papers = []; // PAPERS_JSON_PLACEHOLDER
 
+            const formatPaperDate = (date) => {
+                if (!date) return '';
+                const parsed = new Date(date);
+                return isNaN(parsed.getTime())
+                    ? ''
+                    : parsed.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+            };
+
+            const renderMetaItems = (paper) => {
+                const metaParts = [];
+                const formattedDate = formatPaperDate(paper.attributes.date);
+
+                if (formattedDate) {
+                    metaParts.push(`<span class="meta-item">${formattedDate}</span>`);
+                }
+
+                if (Array.isArray(paper.attributes.categories)) {
+                    metaParts.push(...paper.attributes.categories.map(cat => `<span class="meta-item">${cat}</span>`));
+                }
+
+                return metaParts.join('');
+            };
+
             function filterPapers() {
                 const category = categoryFilter.value;
                 const tag = tagFilter.value;
@@ -346,8 +369,7 @@
                     <div class="paper-card" onclick="window.location.href='${paper.slug}'">
                         <h3 class="paper-card__title">${paper.attributes.title}</h3>
                         <div class="paper-meta">
-                            <span class="meta-item">${new Date(paper.attributes.date).toLocaleDateString()}</span>
-                            ${paper.attributes.categories?.map(cat => `<span class="meta-item">${cat}</span>`).join('')}
+                            ${renderMetaItems(paper)}
                         </div>
                         <p class="paper-card__abstract">${paper.attributes.abstract || ''}</p>
                         <a href="${paper.slug}" class="paper-card__link">Read paper →</a>
