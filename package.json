@@ -5,7 +5,8 @@
   "main": "site/papers/build/generate-papers.js",
   "scripts": {
     "build:papers": "node site/papers/build/generate-papers.js",
-    "dev": "python -m http.server 8000"
+    "dev": "python -m http.server 8000",
+    "lint:md": "markdownlint \"site/papers/content/**/*.md\""
   },
   "dependencies": {
     "markdown-it": "^13.0.1",
@@ -13,8 +14,14 @@
     "highlight.js": "^11.9.0",
     "fs-extra": "^11.1.1"
   },
-  "devDependencies": {},
-  "keywords": ["static-site", "markdown", "papers"],
+  "devDependencies": {
+    "markdownlint-cli": "^0.41.0"
+  },
+  "keywords": [
+    "static-site",
+    "markdown",
+    "papers"
+  ],
   "author": "Prospero",
   "license": "MIT"
 }
