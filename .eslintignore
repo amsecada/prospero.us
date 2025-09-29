@@ -1,0 +1,5 @@
+node_modules/
+site/papers/public/
+site/papers/public/**
+dist/
+build/

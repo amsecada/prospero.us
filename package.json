@@ -5,7 +5,9 @@
   "main": "site/papers/build/generate-papers.js",
   "scripts": {
     "build:papers": "node site/papers/build/generate-papers.js",
-    "dev": "python -m http.server 8000"
+    "dev": "python -m http.server 8000",
+    "lint:js": "eslint site/assets/js site/papers/build",
+    "format": "prettier --write \"site/**/*.{js,json,md,html,css}\""
   },
   "dependencies": {
     "markdown-it": "^13.0.1",
@@ -13,7 +15,14 @@
     "highlight.js": "^11.9.0",
     "fs-extra": "^11.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^3.3.2"
+  },
   "keywords": ["static-site", "markdown", "papers"],
   "author": "Prospero",
   "license": "MIT"
