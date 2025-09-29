@@ -1,0 +1,3 @@
+# Ignore generated or third-party CSS bundles
+site/assets/css/vendor/**
+site/assets/css/dist/**

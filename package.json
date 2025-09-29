@@ -5,7 +5,8 @@
   "main": "site/papers/build/generate-papers.js",
   "scripts": {
     "build:papers": "node site/papers/build/generate-papers.js",
-    "dev": "python -m http.server 8000"
+    "dev": "python -m http.server 8000",
+    "lint:css": "stylelint \"site/assets/css/**/*.css\""
   },
   "dependencies": {
     "markdown-it": "^13.0.1",
@@ -13,8 +14,16 @@
     "highlight.js": "^11.9.0",
     "fs-extra": "^11.1.1"
   },
-  "devDependencies": {},
-  "keywords": ["static-site", "markdown", "papers"],
+  "devDependencies": {
+    "stylelint": "^16.10.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^35.0.0"
+  },
+  "keywords": [
+    "static-site",
+    "markdown",
+    "papers"
+  ],
   "author": "Prospero",
   "license": "MIT"
 }
