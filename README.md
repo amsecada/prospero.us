@@ -37,6 +37,20 @@ python -m http.server 8000
 
 You can then access the site at `http://localhost:8000` in your web browser.
 
+## Continuous Deployment with GitHub Actions
+
+This repository includes a GitHub Actions workflow that automatically rebuilds and deploys the `site/` directory to GitHub Pages whenever changes are pushed to the `main` branch.
+
+The workflow performs the following steps:
+
+1. Checks out the repository.
+2. Installs the Node.js dependencies with `npm ci`.
+3. Runs `npm run build:papers` to regenerate the paper pages from Markdown content.
+4. Touches `site/.nojekyll` to ensure GitHub Pages serves the generated files without applying Jekyll processing.
+5. Uploads the contents of the `site/` directory as the artifact that GitHub Pages publishes.
+
+If you need to trigger a deployment manually, you can do so from the **Actions** tab by running the **Build and Deploy Prospero site** workflow via the **Run workflow** button.
+
 ## Dependencies
 
 This project uses the following npm packages to build the site:
