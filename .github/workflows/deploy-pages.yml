@@ -2,8 +2,10 @@ name: Build and Deploy Prospero site
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
+    branches: [ "main" ]           # prod deploys
+  pull_request:
+    branches: [ "main" ]           # preview deploys for PRs targeting main
+  workflow_dispatch:                # manual runs if you want
 
 permissions:
   contents: read
@@ -43,13 +45,17 @@ jobs:
           path: site
 
   deploy:
-    name: Deploy to GitHub Pages
+    name: Deploy to GitHub Pages (prod or preview)
     runs-on: ubuntu-latest
     needs: build
     environment:
+      # Keep the special Pages env; GitHub shows the URL on each run
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+        # Behavior:
+        # - On push to main => production deployment
+        # - On pull_request => preview deployment with a unique URL
