@@ -222,9 +222,24 @@ async function generateSite() {
     const otherPapers = papers.filter(p => !p.attributes.pinned);
     const otherPapersHtml = otherPapers.map(renderPaperCard).join('');
 
+    // Extract all unique categories and tags for dynamic filter options
+    const allCategories = [...new Set(papers.flatMap(p => p.attributes.categories || []))].sort();
+    const allTags = [...new Set(papers.flatMap(p => p.attributes.tags || []))].sort();
+
+    // Generate filter option HTML
+    const categoryFilterOptions = allCategories.map(cat => 
+      `<option value="${cat}">${cat}</option>`
+    ).join('');
+
+    const tagFilterOptions = allTags.map(tag => 
+      `<option value="${tag}">${tag}</option>`
+    ).join('');
+
     let updatedIndex = papersIndexTemplate
       .replace('<!-- HIGHLIGHTED_PAPERS_PLACEHOLDER -->', highlightedPapersHtml)
-      .replace('<!-- ALL_PAPERS_PLACEHOLDER -->', otherPapersHtml);
+      .replace('<!-- ALL_PAPERS_PLACEHOLDER -->', otherPapersHtml)
+      .replace('<!-- CATEGORY_FILTER_OPTIONS_PLACEHOLDER -->', categoryFilterOptions)
+      .replace('<!-- TAG_FILTER_OPTIONS_PLACEHOLDER -->', tagFilterOptions);
 
     // Also inject JSON data for client-side filtering if needed
     updatedIndex = updatedIndex.replace(
