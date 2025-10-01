@@ -39,6 +39,14 @@ jobs:
       - name: Disable Jekyll processing
         run: touch site/.nojekyll
 
+      - name: Upload preview artifact for PRs
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospero-site-preview
+          path: site
+          if-no-files-found: error
+
       - name: Upload static site artifact
         uses: actions/upload-pages-artifact@v3
         with:
