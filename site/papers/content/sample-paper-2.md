@@ -2,8 +2,8 @@
 title: "Ethical Considerations in Artificial Intelligence Development"
 author: "Dr. Eleanor Vance"
 date: "2024-02-20"
-categories: ["Analysis", "Ethics"]
-tags: ["ai-ethics", "machine-learning", "governance", "responsible-ai"]
+categories: ["Ethics"]
+tags: ["ai-ethics", "machine-learning"]
 pinned: false
 abstract: "This paper examines the ethical challenges posed by rapid advancements in artificial intelligence and proposes a framework for responsible AI development. We explore issues of bias, transparency, accountability, and the societal impact of AI systems."
 ---

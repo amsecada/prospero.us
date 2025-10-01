@@ -263,6 +263,15 @@
                 <h2 class="section-title">Featured Papers</h2>
                 <div class="papers-grid" id="highlighted-papers">
                     
+    <div class="paper-card" onclick="window.location.href='public/hidden-layers/index.html'">
+        <h3 class="paper-card__title">The Hidden Layers of AI Disruption: Beyond Tactical Implementation</h3>
+        <div class="paper-meta">
+            <span class="meta-item">Sep 9, 2025</span><span class="meta-item">Strategy</span><span class="meta-item">Education</span>
+        </div>
+        <p class="paper-card__abstract">This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies.</p>
+        <a href="public/hidden-layers/index.html" class="paper-card__link">Read paper →</a>
+    </div>
+  
     <div class="paper-card" onclick="window.location.href='public/sample-paper-1/index.html'">
         <h3 class="paper-card__title">Understanding Complex Systems Through Network Analysis</h3>
         <div class="paper-meta">
@@ -283,7 +292,7 @@
     <div class="paper-card" onclick="window.location.href='public/sample-paper-2/index.html'">
         <h3 class="paper-card__title">Ethical Considerations in Artificial Intelligence Development</h3>
         <div class="paper-meta">
-            <span class="meta-item">Feb 19, 2024</span><span class="meta-item">Analysis</span><span class="meta-item">Ethics</span>
+            <span class="meta-item">Feb 19, 2024</span><span class="meta-item">Ethics</span>
         </div>
         <p class="paper-card__abstract">This paper examines the ethical challenges posed by rapid advancements in artificial intelligence and proposes a framework for responsible AI development. We explore issues of bias, transparency, accountability, and the societal impact of AI systems.</p>
         <a href="public/sample-paper-2/index.html" class="paper-card__link">Read paper →</a>
@@ -332,7 +341,7 @@
             const sortFilter = document.getElementById('sort-filter');
             const allPapers = document.getElementById('all-papers');
 
-            const papers = [{"slug":"public/sample-paper-2/index.html","attributes":{"title":"Ethical Considerations in Artificial Intelligence Development","author":"Dr. Eleanor Vance","date":"2024-02-20","categories":["Analysis","Ethics"],"tags":["ai-ethics","machine-learning","governance","responsible-ai"],"pinned":false,"abstract":"This paper examines the ethical challenges posed by rapid advancements in artificial intelligence and proposes a framework for responsible AI development. We explore issues of bias, transparency, accountability, and the societal impact of AI systems."}},{"slug":"public/sample-paper-1/index.html","attributes":{"title":"Understanding Complex Systems Through Network Analysis","author":"Prospero Research Team","date":"2024-01-15","categories":["Research","Technical"],"tags":["network-analysis","complex-systems","python","data-visualization"],"pinned":true,"abstract":"This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies."}}];
+            const papers = [{"slug":"public/hidden-layers/index.html","attributes":{"title":"The Hidden Layers of AI Disruption: Beyond Tactical Implementation","author":"Prospero Research Team","date":"2025-09-10","categories":["Strategy","Education"],"tags":["enablement","orchestration"],"pinned":true,"abstract":"This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies."}},{"slug":"public/sample-paper-2/index.html","attributes":{"title":"Ethical Considerations in Artificial Intelligence Development","author":"Dr. Eleanor Vance","date":"2024-02-20","categories":["Ethics"],"tags":["ai-ethics","machine-learning"],"pinned":false,"abstract":"This paper examines the ethical challenges posed by rapid advancements in artificial intelligence and proposes a framework for responsible AI development. We explore issues of bias, transparency, accountability, and the societal impact of AI systems."}},{"slug":"public/sample-paper-1/index.html","attributes":{"title":"Understanding Complex Systems Through Network Analysis","author":"Prospero Research Team","date":"2024-01-15","categories":["Research","Technical"],"tags":["network-analysis","complex-systems"],"pinned":true,"abstract":"This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies."}}];
 
             const formatPaperDate = (date) => {
                 if (!date) return '';

@@ -3,7 +3,7 @@ title: "Understanding Complex Systems Through Network Analysis"
 author: "Prospero Research Team"
 date: "2024-01-15"
 categories: ["Research", "Technical"]
-tags: ["network-analysis", "complex-systems", "python", "data-visualization"]
+tags: ["network-analysis", "complex-systems"]
 pinned: true
 abstract: "This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies."
 ---
