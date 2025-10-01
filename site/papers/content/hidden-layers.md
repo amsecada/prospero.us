@@ -5,7 +5,7 @@ date: "2025-09-10"
 categories: ["Strategy", "Education"]
 tags: ["enablement", "orchestration", "draft"]
 pinned: true
-abstract: "This paper explores the application of network analysis techniques to understand complex systems across various domains, from social networks to biological systems. We present a comprehensive framework for analyzing interconnected systems and demonstrate practical applications through case studies."
+abstract: "Fixating on the LLM War is novel, but it misses a larger strategic picture that can be considered now."
 ---
 
 # **The Hidden Layers of AI Disruption**
